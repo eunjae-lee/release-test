@@ -8,6 +8,7 @@ on:
 
 jobs:
   publish-npm:
+    if: startsWith(github.event.release.name, '@storyblok/field-plugin-cli@')
     name: Publish to NPM
     runs-on: ubuntu-latest
     steps:
@@ -16,6 +17,5 @@ jobs:
         with:
           node-version: 16
       - run: yarn install
-      - if: startsWith(github.event.release.name, '@storyblok/field-plugin-cli@')
-        run: echo "yes cli1!"
+      - run: echo "yes cli1!"
       - run: echo "yes cli2!"
