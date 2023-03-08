@@ -16,6 +16,7 @@ jobs:
         with:
           node-version: 16
       - run: yarn install
-      - run: echo ${{ github.event.name }}
-      - run: echo ${{ github.event.release }}
-      - run: echo ${{ github.event.release.name }}
+      - if: startsWith(github.event.release.name, '@storyblok/field-plugin-cli@')
+        run: echo "yes cli!"
+      - if: "!startsWith(github.event.release.name, '@storyblok/field-plugin-cli@')"
+        run: echo "no not cli"
