@@ -18,3 +18,4 @@ jobs:
       - run: yarn install
       - run: echo ${{ github.event.name }}
       - run: echo ${{ github.event.release }}
+      - run: echo ${{ github.event.release.name }}
