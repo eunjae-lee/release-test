@@ -16,4 +16,4 @@ jobs:
         with:
           node-version: 16
       - run: yarn install
-      - run: echo ${{ github.release.name }}
+      - run: echo ${{ github.event }}
