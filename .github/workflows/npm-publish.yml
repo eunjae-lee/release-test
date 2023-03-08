@@ -1,0 +1,21 @@
+name: Publish the package to NPM
+
+# TODO  create github release when merging to main https://github.com/actions/create-release
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish-npm:
+    if: startsWith(github.event.release.name, '@storyblok/field-plugin-cli@')
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: yarn install
+      - run: echo "yes cli1!"
+      - run: echo "yes cli2!"
